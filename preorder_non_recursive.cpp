@@ -3,9 +3,9 @@ using namespace std;
 #define MAXSIZE 13
 /*      10
        /  \
-      20  30
-     /    /
-    40   50
+      20   30
+     /  \  /
+    40  60 50
 our binary tree
 */
 class BinaryTree{
