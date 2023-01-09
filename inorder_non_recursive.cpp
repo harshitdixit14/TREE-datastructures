@@ -80,7 +80,7 @@ void delete_stack(stack_array *s1)
 {
     delete s1->top;
 }
-void preorder_nonrecursive(BinaryTree*root_node)
+void inorder_nonrecursive(BinaryTree*root_node)
 {
     stack_array *s=create_stack();
     while(1)
@@ -125,5 +125,5 @@ int main()
     node4->data=50;
     node4->left=NULL;
     node4->right=NULL;
-    preorder_nonrecursive(root_node);
+    inorder_nonrecursive(root_node);
 }
