@@ -64,9 +64,10 @@ void push(stack_array *s1,BinaryTree *data)
 }
 void pop(stack_array *s1)
 {
-    //BinaryTree *ans=s1->top;
+    BinaryTree *temp=s1->top;
     --s1->top;
     --s1->array;
+    delete temp;
     //return ans;
 }
 BinaryTree* top(stack_array *s1)
@@ -88,28 +89,23 @@ void delete_stack(stack_array *s1)
 }
 void postorder_nonrecursive(BinaryTree*root_node)
 {
-    stack_array *s=create_stack();
-    BinaryTree *prev=NULL;
-    do{
-        while(root_node!=NULL)
-        {
-            push(s,root_node);
-            root_node=root_node->left;
-        }
-        while(root_node==NULL && !isEmpty(s))
-        {
-            root_node=top(s);
-            if(root_node->right==NULL || root_node->right==prev)
-            {
-                cout<<root_node->data;
-                pop(s);
-                prev=root_node;
-                root_node=NULL;
-            }
-            else
-                root_node=root_node->right;
-        }
-    }while(!isEmpty(s));
+    stack_array *s1=create_stack();
+    stack_array *s2=create_stack();
+    push(s1,root_node);
+    while(!isEmpty(s1))
+    {
+        BinaryTree *temp=top(s1);
+        pop(s1);
+        push(s2,temp);
+        temp=top(s2);
+        push(s1,temp->left);
+        push(s1,temp->right);
+    }
+    while(!isEmpty(s2))
+    {
+        cout<<(s2->top)->data<<" ";
+        pop(s2);
+    }
 }
 int main()
 {
