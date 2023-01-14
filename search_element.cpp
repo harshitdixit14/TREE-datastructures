@@ -47,6 +47,8 @@ int main()
     root_node->right=new BinaryTree(89);
     root_node->left->left=new BinaryTree(90);
     root_node->right->left=new BinaryTree(55);
+    root_node->left->right=new BinaryTree(47);
+    root_node->right->right=new BinaryTree(67);
     int max=INT_MIN;
     if(searchElement(root_node,56))
     {
@@ -65,14 +67,13 @@ int main()
     {
         cout<<"not present";
     }
-    
 
     /*
          45
        /   \
       36   89
-      / \   /
-    90  47  55
+      / \  / \
+    90  47 55 67
 
     our binary tree!!
     */
