@@ -1,4 +1,4 @@
-//finding maximum element in binary tree
+// level order traversal of binary tree
 #include <bits/stdc++.h>
 using namespace std;
 class BinaryTree{
